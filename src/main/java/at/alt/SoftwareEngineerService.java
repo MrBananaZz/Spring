@@ -20,4 +20,8 @@ public class SoftwareEngineerService {
     public void insertSoftwareEngineer(SoftwareEngineer softwareEngineer) {
         repository.save(softwareEngineer);
     }
+
+    public SoftwareEngineer getAllSoftwareEngineersById(int id) {
+        return repository.findById(id).orElseThrow(() -> new IllegalStateException(id + "not found"));
+    }
 }
