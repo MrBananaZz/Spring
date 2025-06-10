@@ -17,4 +17,7 @@ public class SoftwareEngineerService {
         return repository.findAll();
     }
 
+    public void insertSoftwareEngineer(SoftwareEngineer softwareEngineer) {
+        repository.save(softwareEngineer);
+    }
 }
