@@ -1,9 +1,14 @@
 package at.alt;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.util.Objects;
 
+@Entity
 public class SoftwareEngineer {
 
+    @Id
     private int id;
     private String name;
     private String techStack;
