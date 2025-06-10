@@ -29,5 +29,10 @@ public class SoftwareEngineerController {
         return softwareEngineerService.getAllSoftwareEngineersById(id);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public void deleteSoftwareEngineerById(@PathVariable Integer id) {
+        softwareEngineerService.deleteSoftwareEngineerById(id);
+    }
+
 
 }

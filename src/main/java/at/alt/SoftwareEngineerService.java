@@ -22,6 +22,13 @@ public class SoftwareEngineerService {
     }
 
     public SoftwareEngineer getAllSoftwareEngineersById(int id) {
-        return repository.findById(id).orElseThrow(() -> new IllegalStateException(id + "not found"));
+        return repository.findById(id)
+                .orElseThrow(() -> new IllegalStateException(id + "not found"));
     }
+
+    public void deleteSoftwareEngineerById(int id) {
+        repository.deleteById(id);
+
+    }
+
 }
