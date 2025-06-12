@@ -1,9 +1,6 @@
 package at.alt;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -15,15 +12,18 @@ public class SoftwareEngineer {
     private int id;
     private String name;
     private String techStack;
+    @Column(columnDefinition = "TEXT")
+    private String learningPathRecommendation;
 
 
     public SoftwareEngineer(
             int id,
             String name,
-            String techStack) {
+            String techStack, String learningPathRecommendation) {
         this.id = id;
         this.name = name;
         this.techStack = techStack;
+        this.learningPathRecommendation = learningPathRecommendation;
     }
 
     public SoftwareEngineer() {
@@ -53,15 +53,22 @@ public class SoftwareEngineer {
         this.techStack = techStack;
     }
 
+    public String getLearningPathRecommendation() {
+        return learningPathRecommendation;
+    }
+
+    public void setLearningPathRecommendation(
+            String learningPathRecommendation) {}
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         SoftwareEngineer that = (SoftwareEngineer) o;
-        return id == that.id && Objects.equals(name, that.name) && Objects.equals(techStack, that.techStack);
+        return id == that.id && Objects.equals(name, that.name) && Objects.equals(techStack, that.techStack) && Objects.equals(learningPathRecommendation, that.learningPathRecommendation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, techStack);
+        return Objects.hash(id, name, techStack, learningPathRecommendation);
     }
 }

@@ -10,9 +10,13 @@ public class SoftwareEngineerService {
 
     private final SoftwareEngineerRepository repository;
 
+    private final AIService aiService;
+
     //Constructor
-    public SoftwareEngineerService(SoftwareEngineerRepository repository) {
+    public SoftwareEngineerService(SoftwareEngineerRepository repository,
+                                   AIService aiService) {
         this.repository = repository;
+        this.aiService = aiService;
     }
 
     //getAll
@@ -22,6 +26,14 @@ public class SoftwareEngineerService {
 
     //create
     public void insertSoftwareEngineer(SoftwareEngineer softwareEngineer) {
+        String prompt = """
+                Based on the programming tech stack %s that %s has given\s
+                Provide a full learning path and recommendations for this person.
+               \s""".formatted(
+                softwareEngineer.getTechStack(),
+                softwareEngineer.getName());
+        String chatRes = aiService.chat(prompt);
+        softwareEngineer.setLearningPathRecommendation(chatRes);
         repository.save(softwareEngineer);
     }
 
