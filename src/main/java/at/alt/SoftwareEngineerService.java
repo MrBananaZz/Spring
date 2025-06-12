@@ -1,6 +1,7 @@
 package at.alt;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -29,6 +30,15 @@ public class SoftwareEngineerService {
     public void deleteSoftwareEngineerById(int id) {
         repository.deleteById(id);
 
+    }
+
+    public void updateSoftwareEngineerById(int id, SoftwareEngineer update) {
+        SoftwareEngineer softwareEngineer = repository.findById(id)
+                .orElseThrow(() -> new IllegalStateException(
+                        id + " not found"));
+        softwareEngineer.setName(update.getName());
+        softwareEngineer.setTechStack(update.getTechStack());
+        repository.save(softwareEngineer);
     }
 
 }
