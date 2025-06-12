@@ -26,6 +26,7 @@ public class SoftwareEngineerService {
 
     //create
     public void insertSoftwareEngineer(SoftwareEngineer softwareEngineer) {
+       /*
         String prompt = """
                 Based on the programming tech stack %s that %s has given\s
                 Provide a full learning path and recommendations for this person.
@@ -34,6 +35,7 @@ public class SoftwareEngineerService {
                 softwareEngineer.getName());
         String chatRes = aiService.chat(prompt);
         softwareEngineer.setLearningPathRecommendation(chatRes);
+        */
         repository.save(softwareEngineer);
     }
 
@@ -56,6 +58,7 @@ public class SoftwareEngineerService {
                         id + " not found"));
         softwareEngineer.setName(update.getName());
         softwareEngineer.setTechStack(update.getTechStack());
+        softwareEngineer.setEmail(update.getEmail());
         repository.save(softwareEngineer);
     }
 

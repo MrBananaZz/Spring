@@ -2,21 +2,19 @@ package at.alt;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
+@EntityScan(basePackages = "at.alt")
 public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
-    @GetMapping("/api/v1/helloWorld")
-    public String hello() {
-        return "Hello World Spring Boot!";
-    }
+
 
 
 }
