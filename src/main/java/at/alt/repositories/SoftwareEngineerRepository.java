@@ -1,4 +1,4 @@
-package at.alt;
+package at.alt.repositories;
 
 
 import at.alt.entities.SoftwareEngineer;

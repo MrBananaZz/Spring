@@ -1,5 +1,6 @@
-package at.alt;
+package at.alt.service;
 
+import at.alt.repositories.SoftwareEngineerRepository;
 import at.alt.entities.SoftwareEngineer;
 import org.springframework.stereotype.Service;
 

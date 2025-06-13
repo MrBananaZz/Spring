@@ -1,4 +1,4 @@
-package at.alt;
+package at.alt.service;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;

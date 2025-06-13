@@ -1,6 +1,7 @@
-package at.alt;
+package at.alt.controller;
 
 import at.alt.entities.SoftwareEngineer;
+import at.alt.service.SoftwareEngineerService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
