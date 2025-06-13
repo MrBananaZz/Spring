@@ -1,4 +1,4 @@
-package at.alt;
+package at.alt.entities;
 
 import jakarta.persistence.*;
 

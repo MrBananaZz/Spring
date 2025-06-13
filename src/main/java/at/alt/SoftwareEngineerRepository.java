@@ -1,6 +1,7 @@
 package at.alt;
 
 
+import at.alt.entities.SoftwareEngineer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
