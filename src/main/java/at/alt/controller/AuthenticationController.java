@@ -3,6 +3,7 @@ package at.alt.controller;
 import at.alt.auth.AuthenticationRequest;
 import at.alt.auth.AuthenticationResponse;
 import at.alt.auth.RegisterRequest;
+import at.alt.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.client.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,15 +16,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AuthenticationController {
 
+    private final AuthenticationService authenticationService;
+
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(
-            @RequestBody RegisterRequest request) throws Exception {
+            @RequestBody RegisterRequest request
+    ) {
+        return ResponseEntity.ok(authenticationService.register(request));
 
     }
 
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(
-            @RequestBody AuthenticationRequest request) throws Exception {
+            @RequestBody AuthenticationRequest request
+    )  {
+        return ResponseEntity.ok(authenticationService.authenticate(request));
 
     }
 
