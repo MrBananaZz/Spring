@@ -1,7 +1,10 @@
 package at.alt.controller;
 
 import at.alt.entities.SoftwareEngineer;
+import at.alt.entities.SoftwareEngineerRequest;
 import at.alt.service.SoftwareEngineerService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,6 +44,14 @@ public class SoftwareEngineerController {
                                        @PathVariable Integer id) {
         softwareEngineerService.updateSoftwareEngineerById(id, softwareEngineer);
     }
+
+    @PostMapping("/createSoftwareUser")
+    public ResponseEntity<?> save(@RequestBody SoftwareEngineerRequest request) {
+        softwareEngineerService.save(request);
+        return ResponseEntity.accepted().build();
+    }
+
+
 
 
 }

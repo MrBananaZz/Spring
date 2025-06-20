@@ -1,7 +1,9 @@
 package at.alt.service;
 
+import at.alt.entities.SoftwareEngineerRequest;
 import at.alt.repositories.SoftwareEngineerRepository;
 import at.alt.entities.SoftwareEngineer;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -60,6 +62,18 @@ public class SoftwareEngineerService {
         softwareEngineer.setName(update.getName());
         softwareEngineer.setTechStack(update.getTechStack());
         softwareEngineer.setEmail(update.getEmail());
+        repository.save(softwareEngineer);
+    }
+
+    //------------------------------------------------------------------
+
+    public void save(SoftwareEngineerRequest request) {
+        var softwareEngineer = SoftwareEngineer.builder()
+                .id(request.getId())
+                .name(request.getName())
+                .techStack(request.getTechStack())
+                .email(request.getEmail())
+                .build();
         repository.save(softwareEngineer);
     }
 

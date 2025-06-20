@@ -1,5 +1,6 @@
 package at.alt.config;
 
+import jakarta.servlet.Filter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,17 +16,19 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final JwtAuthenticationFilter jwtAuthFilter;
+    private static final String[] WHITE_LIST_URL = {"/api/v1/auth/**",
+            "/api/v1/software-engineers/**",};
 
+    private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
 
     @Bean
-    public SecurityFilterChain springSecurityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain SecurityFilterChain(HttpSecurity http) throws Exception {
         http
             .csrf()
             .disable()
             .authorizeHttpRequests()
-            .requestMatchers("/api/v1/auth/**")
+            .requestMatchers(WHITE_LIST_URL)
             .permitAll()
             .anyRequest()
             .authenticated()

@@ -1,6 +1,10 @@
 package at.alt.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Objects;
 
@@ -10,6 +14,10 @@ import java.util.Objects;
                 @UniqueConstraint(name = "softwareEngineer_email_unique", columnNames = "email")
         })
 @Entity(name = "SoftwareEngineer")
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class SoftwareEngineer {
 
     @Id
@@ -51,6 +59,7 @@ public class SoftwareEngineer {
     private String email;
 
 
+    /*
     public SoftwareEngineer(
             String name,
             String techStack, String learningPathRecommendation, String email) {
@@ -125,4 +134,6 @@ public class SoftwareEngineer {
                 ", email='" + email + '\'' +
                 '}';
     }
+
+     */
 }
