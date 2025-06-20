@@ -45,10 +45,17 @@ public class SoftwareEngineerController {
         softwareEngineerService.updateSoftwareEngineerById(id, softwareEngineer);
     }
 
+    //------------------------------------------------------------------------------
+
     @PostMapping("/createSoftwareUser")
     public ResponseEntity<?> save(@RequestBody SoftwareEngineerRequest request) {
         softwareEngineerService.save(request);
         return ResponseEntity.accepted().build();
+    }
+
+    @GetMapping("/getAllSoftwareUser")
+    public ResponseEntity<List<SoftwareEngineer>> getAllSoftwareUser() {
+        return ResponseEntity.ok(softwareEngineerService.getAllSoftwareEngineers());
     }
 
 
