@@ -5,7 +5,7 @@ import at.alt.auth.AuthenticationResponse;
 import at.alt.auth.RegisterRequest;
 import at.alt.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.ai.chat.client.ResponseEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
